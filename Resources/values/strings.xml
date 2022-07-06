@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Tienda Virtual</string>
+    <string name="action_settings">Settings</string>
+	<string name="agregar">Agregar Producto</string>
+	<string name="listar">Listar Producto</string>
+	<string name="editar">Editar Producto</string>
+	<string name="detalle">Agregar Producto</string>
+	<string name="codigo">Ingrese el código</string>
+	<string name="producto">Ingrese el nombre</string>
+	<string name="precio">Ingrese el precio</string>
+	<string name="foto">Subir Foto</string>
+	<string name="Guardar">Guardar</string>
+	<string name="user">Ingrese su usuario</string>
+	<string name="pass">Ingrese su contraseña</string>
+	<string name="ingresar">Ingresar</string>
+</resources>

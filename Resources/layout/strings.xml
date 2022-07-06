@@ -1,0 +1,19 @@
+<resources>
+	<string name="app_name">Tienda de Productos del hogar</string>
+	<string name="action_settings">Settings</string>
+
+	<string name="user">Ingrese su usuario</string>
+	<string name="pass">Ingrese su contraseña</string>
+	<string name="ingresar">Ingresar</string>
+
+	<string name="agregar">Agregar producto</string>
+	<string name="listar">Listar productos</string>
+	<string name="editar">Editar productos</string>
+
+	<string name="producto">Nombre de producto</string>
+	<string name="precio">Precio de producto</string>
+	<string name="foto">Tomar foto</string>
+	<string name="guardar">Guardar</string>
+	
+	<string name="detalle">Producto</string>
+</resources>

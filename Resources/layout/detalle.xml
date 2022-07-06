@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_marginLeft="30dp"
+    android:layout_marginRight="30dp"
+    android:layout_marginTop="30dp"
+    android:layout_marginBottom="30dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:text="@string/detalle"
+        android:fontFamily="serif-monospace"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtAgregar" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"        
+        android:id="@+id/edtCodigo"
+        android:hint="@string/codigo"
+        android:layout_marginTop="20dp"
+        android:inputType="text" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/edtProducto"
+        android:hint="@string/producto"
+        android:inputType="text" />
+    <EditText
+        android:inputType="numberDecimal"
+        android:hint="@string/precio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/edtPrecio" />
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/spCategoria" />
+    <Button
+        android:text="@string/foto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnFoto" />
+    <ImageView
+        android:src="@android:drawable/ic_menu_gallery"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_gravity="center"
+        android:id="@+id/imgProd"
+        android:contentDescription="@string/app_name" />
+    <Button
+        android:text="@string/Guardar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnGuardar" />
+</LinearLayout>
