@@ -1,37 +1,33 @@
 ﻿using Android.App;
 using Android.Content;
-using Android.Graphics;
 using Android.OS;
-using Android.Graphics;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Linq;
 using System.Text;
 using Tienda_Tarea.TiendaVServices;
 
 namespace Tienda_Tarea.adaptador
 {
-    public class adapDetalle : BaseAdapter<TiendaVServices.CategoriaSW>
-
+    public class adapCategoria : BaseAdapter<TiendaVServices.CategoriaSW>
     {
-        
-
         Activity context;
         List<TiendaVServices.CategoriaSW> categorias; //Lista de categorias, consumidas por el servicio.
 
-        public adapDetalle(Activity context, List<CategoriaSW> categorias)
+        public adapCategoria(Activity context, List<CategoriaSW> categorias)
         {
             this.context = context;
             this.categorias = categorias;
         }
 
+
         public override CategoriaSW this[int position]
         {
             get { return categorias[position]; }
+
         }
 
         public override int Count => categorias.Count();
@@ -48,13 +44,13 @@ namespace Tienda_Tarea.adaptador
             View view = convertView;
 
             if (view == null)
-                view = context.LayoutInflater.Inflate(Resource.Layout.adtDetalle, null);//asociamos el adaptador con el layout adaptador
+                view = context.LayoutInflater.Inflate(Resource.Layout.adtCategoria, null);//asociamos el adaptador con el layout adaptador
 
-            view.FindViewById<TextView>(Resource.Id.txtDescripcionC).Text = item.Descripcion;
-            view.FindViewById<TextView>(Resource.Id.txtCodigoC).Text = item.Codigo;
-            
+            view.FindViewById<TextView>(Resource.Id.txtNombre).Text = item.Codigo;
+            view.FindViewById<TextView>(Resource.Id.txtDetalle).Text = item.Descripcion;
+            view.FindViewById<ImageView>(Resource.Id.imgProducto).SetImageResource(Resource.Drawable.category);
 
-            return view;
+            return view; throw new NotImplementedException();
         }
     }
 }

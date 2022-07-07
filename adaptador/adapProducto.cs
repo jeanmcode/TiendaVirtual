@@ -45,12 +45,12 @@ namespace Tienda_Tarea.adaptador
 
             Bitmap bitmap = BitmapFactory.DecodeByteArray(item.Imagen, 0, item.Imagen.Length);
 
-            if (view == null)                                    // retutilizando layout
+            if (view == null)                                    
                 view = context.LayoutInflater.Inflate(Resource.Layout.adtProducto, null);//asociamos el adaptador con el layout adaptador
 
-            view.FindViewById<TextView>(Resource.Id.txtNombre).Text = item.Descripcion;
-            view.FindViewById<TextView>(Resource.Id.txtDetalle).Text = item.Precio.ToString();
-            view.FindViewById<ImageView>(Resource.Id.imgProducto).SetImageBitmap(bitmap);
+            view.FindViewById<TextView>(Resource.Id.txtProductoN).Text = item.Descripcion;
+            view.FindViewById<TextView>(Resource.Id.txtPrecio).Text = "C$"+ item.Precio.ToString();
+            view.FindViewById<ImageView>(Resource.Id.imgProducto2).SetImageBitmap(bitmap);
 
             return view;
         }

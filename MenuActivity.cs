@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Xamarin.Essentials; //libreria para checar conexion a internet
 
 namespace Tienda_Tarea
 {
@@ -15,6 +16,7 @@ namespace Tienda_Tarea
     public class MenuActivity : Activity
     {
         Button btnAgregar,btnListar,btnEditar;
+        ImageButton btnLogout;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -26,10 +28,20 @@ namespace Tienda_Tarea
             btnAgregar = (Button)FindViewById(Resource.Id.btnAgregar);
             btnListar = (Button)FindViewById(Resource.Id.btnListar);
             btnEditar = (Button)FindViewById(Resource.Id.btnEditar);
+            btnLogout = (ImageButton)FindViewById(Resource.Id.btnLogout);
 
             btnAgregar.Click += BtnAgregar_Click;
             btnListar.Click += BtnListar_Click;
             btnEditar.Click += BtnEditar_Click;
+            btnLogout.Click += BtnLogout_Click;
+        }
+
+        private void BtnLogout_Click(object sender, EventArgs e)
+        {
+
+            StartActivity(typeof(MainActivity));
+            this.Finish();
+
         }
 
         private void BtnEditar_Click(object sender, EventArgs e)
@@ -39,12 +51,45 @@ namespace Tienda_Tarea
 
         private void BtnListar_Click(object sender, EventArgs e)
         {
-            StartActivity(typeof(ListasActivity));
+
+            //Checa la conexion a internet
+            if (Connectivity.NetworkAccess == NetworkAccess.Internet)
+            {
+
+                StartActivity(typeof(ListasActivity));
+            }
+
+
+            else
+            {
+                Toast.MakeText(this, "No posee conexión a internet", ToastLength.Short).Show();
+
+            }
+
+                
+            
+            
         }
 
         private void BtnAgregar_Click(object sender, EventArgs e)
         {
-            StartActivity(typeof(DetalleActivity));
+
+            //Checa la conexion a internet
+            if (Connectivity.NetworkAccess == NetworkAccess.Internet)
+            {
+
+                StartActivity(typeof(DetalleActivity));
+            }
+
+
+            else
+            {
+                Toast.MakeText(this, "No posee conexión a internet", ToastLength.Short).Show();
+
+            }
+
+                
+            
         }
     }
 }

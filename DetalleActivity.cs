@@ -11,6 +11,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using Tienda_Tarea.adaptador;
+using Xamarin.Essentials; //libreria para checar conexion a internet
 
 namespace Tienda_Tarea
 {
@@ -57,16 +58,18 @@ namespace Tienda_Tarea
 
         }
 
+       
+            
+
         private void BtnGuardar_Click(object sender, EventArgs e)
         {
 
             //se pone el  más uno porque las posiciones del spiner inician en cero y los id de la DB en 1
             int CategoriaId = spnCategoria.SelectedItemPosition  + 1;
 
-
-            try
+            //Checa la conexion a internet
+            if (Connectivity.NetworkAccess == NetworkAccess.Internet)
             {
-
 
                 if (!string.IsNullOrWhiteSpace(edtCodigo.Text) && !string.IsNullOrWhiteSpace(edtNombre.Text)
                && !string.IsNullOrWhiteSpace(edtPrecio.Text) && imagen != null)
@@ -101,13 +104,16 @@ namespace Tienda_Tarea
                 }
 
             }
-            catch (Exception ex)
+
+            else
             {
-
-
                 Toast.MakeText(this, "No posee conexión a internet", ToastLength.Long).Show();
 
             }
+
+                
+
+            
 
 
 

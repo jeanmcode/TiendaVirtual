@@ -64,6 +64,7 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="adaptador\adapCategoria.cs" />
     <Compile Include="adaptador\adapDetalle.cs" />
     <Compile Include="adaptador\adapProducto.cs" />
     <Compile Include="DetalleActivity.cs" />
@@ -139,13 +140,7 @@
     <AndroidResource Include="Resources\layout\menu.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\strings.xml" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable\category.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\UserIcon.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\adtProducto.xml">
@@ -174,6 +169,17 @@
       <CachedSettingsPropName>
       </CachedSettingsPropName>
     </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\User.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\adtCategoria.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\Logout.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

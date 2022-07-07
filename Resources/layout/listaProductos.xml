@@ -9,16 +9,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <TextView
-        android:text="@string/app_name"
+        android:text="@string/TituloProductos"
         android:textAlignment="center"
-        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/txtListaP" />
     <ListView
+        android:minWidth="25px"
+        android:minHeight="25px"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="30dp"
-        android:id="@+id/lstProducto" />
+        android:id="@+id/lstPro" />
 
 </LinearLayout>

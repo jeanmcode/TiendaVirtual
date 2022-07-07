@@ -18,8 +18,10 @@ namespace Tienda_Tarea
         //  INSTANCIA DEL SERVICIO A CONSUMIR
         public static TiendaVServices.TiendaVirtualWS tienda = new TiendaVServices.TiendaVirtualWS();
 
-
+        int ID;
+        string Nombre;
         ListView lstProducto;
+        TextView txtTituloP;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -28,17 +30,22 @@ namespace Tienda_Tarea
 
             // Create your application here
 
-            lstProducto = (ListView)FindViewById(Resource.Id.lstProducto);
+            lstProducto = (ListView)FindViewById(Resource.Id.lstPro);
+            txtTituloP = (TextView)FindViewById(Resource.Id.txtListaP);
+
+
 
             
 
-            int indice=0;
-
             //Recibimos el id del layaout anterior, siempre los enteros se reciben con GetIntExtra
-            indice= Intent.GetIntExtra("ID",indice);
+           ID= Intent.GetIntExtra("ID",ID);
+           Nombre = Intent.GetStringExtra("Nombre");
+
+            txtTituloP.Text = txtTituloP.Text + " de " + Nombre;
+
 
             //se envia el ID+1 porque en los listview las posiciones inician en cero y en las DB en uno
-            lstProducto.Adapter = new adapProducto(this,tienda.GetProductosByCategoria(2).ToList());
+            lstProducto.Adapter = new adapProducto(this,tienda.GetProductosByCategoria(ID).ToList());
 
         }
     }

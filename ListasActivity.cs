@@ -29,7 +29,7 @@ namespace Tienda_Tarea
             lstCategoria = (ListView)FindViewById(Resource.Id.lstItem);
 
             //llamamos la instancia, luego al metodo que trae todas las categorias y las convertimos a lista 
-            lstCategoria.Adapter = new adapDetalle(this,tienda.GetCategoria().ToList());
+            lstCategoria.Adapter = new adapCategoria(this,tienda.GetCategoria().ToList());
 
             lstCategoria.ItemClick += LstCategoria_ItemClick;
 
@@ -49,13 +49,17 @@ namespace Tienda_Tarea
 
               //abrir nuevo layout
 
-              var productos = tienda.GetCategoria().ToList()[e.Position]; //obtenemos la posicion de la categoria a la que se le 
-                                                                 //ha dado click
-              int indice = tienda.GetCategoria().ToList().IndexOf(productos);
+              var productos = tienda.GetCategoria()[e.Position]; //obtenemos la posicion de la categoria a la que se le 
+
+              //almacenamos el id del producto al que se le dio click en el listview
+              int ID = productos.Id;
+              string Nombre = productos.Descripcion;
 
               Intent i = new Intent(this, typeof(ListaProActivity));
 
-              i.PutExtra("ID", indice);
+
+              i.PutExtra("ID", ID);
+              i.PutExtra("Nombre", Nombre);
 
               StartActivity(i);
 

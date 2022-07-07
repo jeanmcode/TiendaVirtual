@@ -33,19 +33,26 @@ namespace Tienda_Tarea
 
         private void BtnIngresar_Click(object sender, System.EventArgs e)
         {
-            string user = "admin";
-            string pass = "123";
+            Android.App.AlertDialog.Builder alerta = new Android.App.AlertDialog.Builder(this);
+            string user = "Jean";
+            string pass = "18040491";
 
             if (edtPass.Text == pass && edtUser.Text == user)
             {
 
                 StartActivity(typeof(MenuActivity));
+                this.Finish();
                 Toast.MakeText(this, "Bienvenido", ToastLength.Long).Show();
 
             }
             else
             {
-                Toast.MakeText(this, "Verifique su contraseña o Usuario", ToastLength.Long).Show();
+                alerta.SetMessage("Verifique su contraseña o Usuario");
+                alerta.SetIcon(Android.Resource.Drawable.IcDialogAlert);
+                alerta.Show();
+                
+
+                    
 
             }
         }
