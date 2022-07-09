@@ -13,7 +13,7 @@ using Tienda_Tarea.adaptador;
 namespace Tienda_Tarea
 {
     [Activity(Label = "ListaProActivity")]
-    public class ListaProActivity : Activity
+    public class ListaProducto_Activity : Activity
     {
         //  INSTANCIA DEL SERVICIO A CONSUMIR
         public static TiendaVServices.TiendaVirtualWS tienda = new TiendaVServices.TiendaVirtualWS();
@@ -45,7 +45,7 @@ namespace Tienda_Tarea
 
 
             //se envia el ID+1 porque en los listview las posiciones inician en cero y en las DB en uno
-            lstProducto.Adapter = new adapProducto(this,tienda.GetProductosByCategoria(ID).ToList());
+            lstProducto.Adapter = new adtProducto(this,tienda.GetProductosByCategoria(ID).ToList());
 
         }
     }

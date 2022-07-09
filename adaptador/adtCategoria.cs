@@ -12,12 +12,12 @@ using Tienda_Tarea.TiendaVServices;
 
 namespace Tienda_Tarea.adaptador
 {
-    public class adapCategoria : BaseAdapter<TiendaVServices.CategoriaSW>
+    public class adtCategoria : BaseAdapter<TiendaVServices.CategoriaSW>
     {
         Activity context;
         List<TiendaVServices.CategoriaSW> categorias; //Lista de categorias, consumidas por el servicio.
 
-        public adapCategoria(Activity context, List<CategoriaSW> categorias)
+        public adtCategoria(Activity context, List<CategoriaSW> categorias)
         {
             this.context = context;
             this.categorias = categorias;

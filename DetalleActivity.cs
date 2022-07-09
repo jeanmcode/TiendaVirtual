@@ -45,7 +45,7 @@ namespace Tienda_Tarea
             btnGuardar = (Button)FindViewById(Resource.Id.btnGuardar);
             imgProd = (ImageView)FindViewById(Resource.Id.imgProd);
             //metemos dentro de un adaptador las categorias
-            var adaptador = new adapDetalle(this, tienda.GetCategoria().ToList());
+            var adaptador = new adtDetalle(this, tienda.GetCategoria().ToList());
 
             //cargamos el spinner
             spnCategoria.Adapter=adaptador;
@@ -72,15 +72,15 @@ namespace Tienda_Tarea
             {
 
                 if (!string.IsNullOrWhiteSpace(edtCodigo.Text) && !string.IsNullOrWhiteSpace(edtNombre.Text)
-               && !string.IsNullOrWhiteSpace(edtPrecio.Text) && imagen != null)
+           && !string.IsNullOrWhiteSpace(edtPrecio.Text) && imagen != null)
                 {
 
                     //Se setean los datos, si se agregan regresa true
-               if (tienda.SetProducto(edtCodigo.Text, edtNombre.Text, double.Parse(edtPrecio.Text),
-                imagen, CategoriaId ))
+                    if (tienda.SetProducto(edtCodigo.Text, edtNombre.Text, double.Parse(edtPrecio.Text),
+                     imagen, CategoriaId))
                     {
 
-                        Toast.MakeText(this, "Producto Agegado con exito", ToastLength.Long).Show();
+                        Toast.MakeText(this, "Producto Agregado con exito", ToastLength.Long).Show();
                         StartActivity(typeof(MenuActivity));
                         this.Finish();
 
@@ -92,16 +92,13 @@ namespace Tienda_Tarea
 
                     }
 
-
-
-
                 }
 
                 else
                 {
 
                     Toast.MakeText(this, "Debe de llenar todos los campos y agregar una fotografia del producto", ToastLength.Long).Show();
-                }
+                }   
 
             }
 
@@ -128,7 +125,7 @@ namespace Tienda_Tarea
         }
 
 
-        //metodo creado para hacer la conversion de la imagen a mapa de bits
+        //metodo creado para hacer la conversion de la imagen a array de bits
         protected override void OnActivityResult(int requestCode, [GeneratedEnum] Result resultCode, Intent data)
         {
             base.OnActivityResult(requestCode, resultCode, data);

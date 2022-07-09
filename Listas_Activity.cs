@@ -14,7 +14,7 @@ using Tienda_Tarea.TiendaVServices;
 namespace Tienda_Tarea
 {
     [Activity(Label = "ListasActivity")]
-    public class ListasActivity : Activity
+    public class Listas_Activity : Activity
     {
         //  INSTANCIA DEL SERVICIO A CONSUMIR
         public static TiendaVServices.TiendaVirtualWS tienda = new TiendaVServices.TiendaVirtualWS();
@@ -29,7 +29,7 @@ namespace Tienda_Tarea
             lstCategoria = (ListView)FindViewById(Resource.Id.lstItem);
 
             //llamamos la instancia, luego al metodo que trae todas las categorias y las convertimos a lista 
-            lstCategoria.Adapter = new adapCategoria(this,tienda.GetCategoria().ToList());
+            lstCategoria.Adapter = new adtCategoria(this,tienda.GetCategoria().ToList());
 
             lstCategoria.ItemClick += LstCategoria_ItemClick;
 
@@ -41,7 +41,7 @@ namespace Tienda_Tarea
             Android.App.AlertDialog.Builder alerta = new Android.App.AlertDialog.Builder(this);
 
             alerta.SetTitle("Ver productos");
-            alerta.SetMessage("¿Desea ver los productos de esta categoria");
+            alerta.SetMessage("¿Desea ver los productos de esta categoria?");
             alerta.SetIcon(Android.Resource.Drawable.IcDialogAlert);
             alerta.SetPositiveButton("si", delegate
 
@@ -55,7 +55,7 @@ namespace Tienda_Tarea
               int ID = productos.Id;
               string Nombre = productos.Descripcion;
 
-              Intent i = new Intent(this, typeof(ListaProActivity));
+              Intent i = new Intent(this, typeof(ListaProducto_Activity));
 
 
               i.PutExtra("ID", ID);

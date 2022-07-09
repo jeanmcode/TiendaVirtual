@@ -56,7 +56,7 @@ namespace Tienda_Tarea
             if (Connectivity.NetworkAccess == NetworkAccess.Internet)
             {
 
-                StartActivity(typeof(ListasActivity));
+                StartActivity(typeof(Listas_Activity));
             }
 
 

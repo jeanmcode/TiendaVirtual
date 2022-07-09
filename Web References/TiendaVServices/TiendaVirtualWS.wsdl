@@ -12,6 +12,21 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="Logueo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LogueoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="LogueoResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="GetProductosByCategoria">
         <s:complexType>
           <s:sequence>
@@ -103,6 +118,12 @@
   <wsdl:message name="HelloWorldSoapOut">
     <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
   </wsdl:message>
+  <wsdl:message name="LogueoSoapIn">
+    <wsdl:part name="parameters" element="tns:Logueo" />
+  </wsdl:message>
+  <wsdl:message name="LogueoSoapOut">
+    <wsdl:part name="parameters" element="tns:LogueoResponse" />
+  </wsdl:message>
   <wsdl:message name="GetProductosByCategoriaSoapIn">
     <wsdl:part name="parameters" element="tns:GetProductosByCategoria" />
   </wsdl:message>
@@ -132,6 +153,10 @@
       <wsdl:input message="tns:HelloWorldSoapIn" />
       <wsdl:output message="tns:HelloWorldSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="Logueo">
+      <wsdl:input message="tns:LogueoSoapIn" />
+      <wsdl:output message="tns:LogueoSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="GetProductosByCategoria">
       <wsdl:input message="tns:GetProductosByCategoriaSoapIn" />
       <wsdl:output message="tns:GetProductosByCategoriaSoapOut" />
@@ -153,6 +178,15 @@
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="HelloWorld">
       <soap:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Logueo">
+      <soap:operation soapAction="http://tempuri.org/Logueo" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -208,6 +242,15 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="Logueo">
+      <soap12:operation soapAction="http://tempuri.org/Logueo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetProductosByCategoria">
       <soap12:operation soapAction="http://tempuri.org/GetProductosByCategoria" style="document" />
       <wsdl:input>
@@ -247,10 +290,10 @@
   </wsdl:binding>
   <wsdl:service name="TiendaVirtualWS">
     <wsdl:port name="TiendaVirtualWSSoap" binding="tns:TiendaVirtualWSSoap">
-      <soap:address location="http://tiendav1rtualapp.somee.com/TiendaVirtual2/TiendaVirtualWS.asmx" />
+      <soap:address location="http://tiendavirtualapp.somee.com/TiendaVirtual/TiendaVirtualWS.asmx" />
     </wsdl:port>
     <wsdl:port name="TiendaVirtualWSSoap12" binding="tns:TiendaVirtualWSSoap12">
-      <soap12:address location="http://tiendav1rtualapp.somee.com/TiendaVirtual2/TiendaVirtualWS.asmx" />
+      <soap12:address location="http://tiendavirtualapp.somee.com/TiendaVirtual/TiendaVirtualWS.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

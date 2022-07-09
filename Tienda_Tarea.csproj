@@ -64,12 +64,12 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="adaptador\adapCategoria.cs" />
-    <Compile Include="adaptador\adapDetalle.cs" />
-    <Compile Include="adaptador\adapProducto.cs" />
+    <Compile Include="adaptador\adtCategoria.cs" />
+    <Compile Include="adaptador\adtDetalle.cs" />
+    <Compile Include="adaptador\adtProducto.cs" />
     <Compile Include="DetalleActivity.cs" />
-    <Compile Include="ListaProActivity.cs" />
-    <Compile Include="ListasActivity.cs" />
+    <Compile Include="ListaProducto_Activity.cs" />
+    <Compile Include="Listas_Activity.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="MenuActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
@@ -153,24 +153,6 @@
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
-    <WebReferences Include="Web References\" />
-  </ItemGroup>
-  <ItemGroup>
-    <WebReferenceUrl Include="http://tiendav1rtualapp.somee.com/TiendaVirtual2/TiendaVirtualWS.asmx%3fWSDL">
-      <UrlBehavior>Dynamic</UrlBehavior>
-      <RelPath>Web References\TiendaVServices\</RelPath>
-      <UpdateFromURL>http://tiendav1rtualapp.somee.com/TiendaVirtual2/TiendaVirtualWS.asmx%3fWSDL</UpdateFromURL>
-      <ServiceLocationURL>
-      </ServiceLocationURL>
-      <CachedDynamicPropName>
-      </CachedDynamicPropName>
-      <CachedAppSettingsObjectName>
-      </CachedAppSettingsObjectName>
-      <CachedSettingsPropName>
-      </CachedSettingsPropName>
-    </WebReferenceUrl>
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable\User.png" />
   </ItemGroup>
   <ItemGroup>
@@ -180,6 +162,24 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\Logout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://tiendavirtualapp.somee.com/TiendaVirtual/TiendaVirtualWS.asmx%3fWSDL">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\TiendaVServices\</RelPath>
+      <UpdateFromURL>http://tiendavirtualapp.somee.com/TiendaVirtual/TiendaVirtualWS.asmx%3fWSDL</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>
+      </CachedAppSettingsObjectName>
+      <CachedSettingsPropName>
+      </CachedSettingsPropName>
+    </WebReferenceUrl>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

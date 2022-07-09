@@ -31,6 +31,8 @@ namespace Tienda_Tarea.TiendaVServices {
         
         private System.Threading.SendOrPostCallback HelloWorldOperationCompleted;
         
+        private System.Threading.SendOrPostCallback LogueoOperationCompleted;
+        
         private System.Threading.SendOrPostCallback GetProductosByCategoriaOperationCompleted;
         
         private System.Threading.SendOrPostCallback SetProductoOperationCompleted;
@@ -43,7 +45,7 @@ namespace Tienda_Tarea.TiendaVServices {
         
         /// <remarks/>
         public TiendaVirtualWS() {
-            this.Url = "http://tiendav1rtualapp.somee.com/TiendaVirtual2/TiendaVirtualWS.asmx";
+            this.Url = "http://tiendavirtualapp.somee.com/TiendaVirtual/TiendaVirtualWS.asmx";
             if ((this.IsLocalFileSystemWebService(this.Url) == true)) {
                 this.UseDefaultCredentials = true;
                 this.useDefaultCredentialsSetExplicitly = false;
@@ -81,6 +83,9 @@ namespace Tienda_Tarea.TiendaVServices {
         public event HelloWorldCompletedEventHandler HelloWorldCompleted;
         
         /// <remarks/>
+        public event LogueoCompletedEventHandler LogueoCompleted;
+        
+        /// <remarks/>
         public event GetProductosByCategoriaCompletedEventHandler GetProductosByCategoriaCompleted;
         
         /// <remarks/>
@@ -116,6 +121,37 @@ namespace Tienda_Tarea.TiendaVServices {
             if ((this.HelloWorldCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.HelloWorldCompleted(this, new HelloWorldCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/Logueo", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public bool Logueo(string UserName, string Password) {
+            object[] results = this.Invoke("Logueo", new object[] {
+                        UserName,
+                        Password});
+            return ((bool)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void LogueoAsync(string UserName, string Password) {
+            this.LogueoAsync(UserName, Password, null);
+        }
+        
+        /// <remarks/>
+        public void LogueoAsync(string UserName, string Password, object userState) {
+            if ((this.LogueoOperationCompleted == null)) {
+                this.LogueoOperationCompleted = new System.Threading.SendOrPostCallback(this.OnLogueoOperationCompleted);
+            }
+            this.InvokeAsync("Logueo", new object[] {
+                        UserName,
+                        Password}, this.LogueoOperationCompleted, userState);
+        }
+        
+        private void OnLogueoOperationCompleted(object arg) {
+            if ((this.LogueoCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.LogueoCompleted(this, new LogueoCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -409,6 +445,32 @@ namespace Tienda_Tarea.TiendaVServices {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
+    public delegate void LogueoCompletedEventHandler(object sender, LogueoCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class LogueoCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal LogueoCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public bool Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[0]));
             }
         }
     }

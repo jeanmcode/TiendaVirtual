@@ -3,6 +3,7 @@ using Android.OS;
 using Android.Runtime;
 using AndroidX.AppCompat.App;
 using Android.Widget;
+using Xamarin.Essentials;
 
 namespace Tienda_Tarea
 {
@@ -26,6 +27,18 @@ namespace Tienda_Tarea
             edtUser = (EditText)FindViewById(Resource.Id.edtUser);
             edtPass = (EditText)FindViewById(Resource.Id.edtPass);
 
+            Android.App.AlertDialog.Builder alerta = new Android.App.AlertDialog.Builder(this);
+
+            if(Connectivity.NetworkAccess != NetworkAccess.Internet)
+            {
+                alerta.SetMessage("No internet connection");
+                alerta.SetIcon(Android.Resource.Drawable.IcDialogAlert);
+                alerta.Show();
+
+            }
+
+            
+
             btnIngresar.Click += BtnIngresar_Click;
 
     
@@ -34,27 +47,44 @@ namespace Tienda_Tarea
         private void BtnIngresar_Click(object sender, System.EventArgs e)
         {
             Android.App.AlertDialog.Builder alerta = new Android.App.AlertDialog.Builder(this);
-            string user = "Jean";
-            string pass = "18040491";
 
-            if (edtPass.Text == pass && edtUser.Text == user)
-            {
+            //string user = "Jean";
+            //string pass = "18040491";
 
-                StartActivity(typeof(MenuActivity));
-                this.Finish();
-                Toast.MakeText(this, "Bienvenido", ToastLength.Long).Show();
+            if(Connectivity.NetworkAccess == NetworkAccess.Internet)
+            { 
+
+                //mandamos los datos de logueo al servicio web
+                if (tienda.Logueo(edtUser.Text, edtPass.Text))
+                {
+
+                    StartActivity(typeof(MenuActivity));
+                    this.Finish();
+                    Toast.MakeText(this, "Bienvenido", ToastLength.Long).Show();
+
+                }
+                else
+                {
+                    alerta.SetMessage("Verifique su contraseña o Usuario");
+                    alerta.SetIcon(Android.Resource.Drawable.IcDialogAlert);
+                    alerta.Show();
+
+
+
+
+                }
+
 
             }
             else
             {
-                alerta.SetMessage("Verifique su contraseña o Usuario");
+                alerta.SetMessage("No internet connection");
                 alerta.SetIcon(Android.Resource.Drawable.IcDialogAlert);
                 alerta.Show();
-                
-
-                    
 
             }
+
+           
         }
 
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
